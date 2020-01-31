@@ -2,8 +2,6 @@
 The Front End app requests the user to input the name and number. 
 On submitting the form user will see his name and word representation of the number entered. (API project should be running for this)
 
-# Clone or Download the repository your local machine.
-
 # Run the API Project (NumToWordConversionApiApp) 
 NumToWordConversionApiApp is a Web Api Project.
 Browse the directory NumToWordConversionApiApp and open the NumToWordConversionApiApp.sln file.
