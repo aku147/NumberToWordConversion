@@ -1,0 +1,45 @@
+﻿@model FE_WebApp.Models.PersonDetail
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Input</h2>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Enter Name: </td>
+            <td><input type="text" name="Name" /></td>
+        </tr>
+        <tr>
+            <td>Enter Number: </td>
+            <td><input type="text" name="Number" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit Form" /></td>
+        </tr>
+    </table>
+}
+
+@if (Model != null)
+{
+    <h2>Output</h2>
+    <table>
+        @if (ViewBag.Error != null)
+        {
+            <tr>
+                <td>@ViewBag.Error</td>
+                <td></td>
+            </tr>
+        }
+        <tr>
+            <td>Name: </td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Number: </td>
+            <td>@Model.Number</td>
+        </tr>
+    </table>
+}
