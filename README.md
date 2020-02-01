@@ -7,6 +7,8 @@ NumToWordConversionApiApp is a Web Api Project. It supports 12 digts before deci
 Browse the directory NumToWordConversionApiApp and open the NumToWordConversionApiApp.sln file.
 Rebuild the solution.
 Run the application by pressing F5
+[Note1: On Running, if application shows the error that 'path bin\roslyn\csc.exe not found', then try rebuilding the solution few times and check if "roslyn" folder got created in the bin folder. If folder gets created then applocation will work ok.] 
+[Note2: To Run the Unit Test cases, change the configuration to Release.] 
 
 # Run the Front End Application (FE-WebApp)
 FE-WebApp is and MVC application. 
