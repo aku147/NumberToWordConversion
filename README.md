@@ -3,7 +3,7 @@ The Front End app requests the user to input the name and number.
 On submitting the form user will see his name and word representation of the number entered. (API project should be running for this)
 
 # Run the API Project (NumToWordConversionApiApp) 
-NumToWordConversionApiApp is a Web Api Project.
+NumToWordConversionApiApp is a Web Api Project. It supports 12 digts before decimal and 2 digts after decimal. 
 Browse the directory NumToWordConversionApiApp and open the NumToWordConversionApiApp.sln file.
 Rebuild the solution.
 Run the application by pressing F5

@@ -60,8 +60,14 @@ namespace NumberToWordConversionRepository
                 //Assigning the whole number part of the input
                 numberBeforeDecimal = number.Substring(0, decimalIndex);
 
-                //Assigning the number after decimal
+                //Assigning the number after decimal                
                 numberAfterDecimal = number.Substring(decimalIndex + 1);
+                
+                // If more than two digits after decimal then pick only first two digits
+                if (numberAfterDecimal.Length == 1)
+                    numberAfterDecimal = numberAfterDecimal + "0";
+                else if (numberAfterDecimal.Length > 2)
+                    numberAfterDecimal = numberAfterDecimal.Substring(0, 2);
 
                 //Decision if the value after decimal is required to be in the word format or not
                 if (Convert.ToDouble(numberAfterDecimal) > 0)
@@ -101,8 +107,10 @@ namespace NumberToWordConversionRepository
                 if (num > 0)
                 {
                     int numberOfDigits = input.Length;
-                    int position = 0;//store digit grouping    
-                    string place = "";//digit grouping name:hundres,thousand,etc...    
+                    if (numberOfDigits > 12)
+                        throw new Exception("Only 12 digits supported");
+                    int position = 0;//position used split the numbers in to different sets(like hundred, thousand, million) for recursion
+                    string place = "";//used to assign place name like hundred,thousand etc between outputs of recursive calls    
                     switch (numberOfDigits)
                     {
                         case 1://unit place
@@ -134,8 +142,7 @@ namespace NumberToWordConversionRepository
                         case 12:
                             position = (numberOfDigits % 10) + 1;
                             place = " Billion ";
-                            break;
-                        //add extra case options for anything above Billion...    
+                            break;                          
                         default:
                             isComplete = true;
                             break;

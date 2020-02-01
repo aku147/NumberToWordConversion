@@ -21,10 +21,10 @@ namespace NumToWordConversionApiApp.Controllers
         }
 
         /// <summary>
-        /// API returns the word representation of number
+        /// API returns the word representation of -ve/+ve number (Only 12 Digits before decimal and 2 digits after Decimal are supported)
         /// </summary>
         /// <param name="request"></param>
-        /// <returns></returns>
+        /// <returns></returns>        
         [ResponseType(typeof(string))]
         [HttpPost]
         [Route("wordrepresentation")]
