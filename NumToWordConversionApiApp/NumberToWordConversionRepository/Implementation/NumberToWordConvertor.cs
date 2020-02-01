@@ -52,6 +52,7 @@ namespace NumberToWordConversionRepository
             //Assigning the input assuming that it is whole number
             string numberBeforeDecimal = number;
             string numberAfterDecimal = "";
+            string strForNumberAfterDecimal = "";
 
             //Check if number contains a decimal
             if (number.Contains("."))
@@ -73,21 +74,24 @@ namespace NumberToWordConversionRepository
                 if (Convert.ToDouble(numberAfterDecimal) > 0)
                 {
                     //Fetching the word format for number after decimal
-                    numberAfterDecimal = ConvertWholeNumberToWord(numberAfterDecimal);                    
+                    numberAfterDecimal = ConvertWholeNumberToWord(numberAfterDecimal);
+                    strForNumberAfterDecimal = string.Format("{0} {1}", numberAfterDecimal, "Cents Only");
                 }
 
                 if (Convert.ToDouble(numberBeforeDecimal) > 0)
                 {
                     //Fetching the word format for number before decimal
-                    numberBeforeDecimal = ConvertWholeNumberToWord(numberBeforeDecimal).Trim();
-                    
-                    //Concatenation of number before decimal with number after decimal            
-                    return string.Format("{0} {1} {2} {3}", numberBeforeDecimal, "And", numberAfterDecimal, "Cents Only");
+                    numberBeforeDecimal = ConvertWholeNumberToWord(numberBeforeDecimal).Trim();                                       
                 }
-                else
-                {
-                    return string.Format("{0} {1}", numberAfterDecimal, "Cents Only");
-                }                              
+
+                if (string.IsNullOrEmpty(numberBeforeDecimal) && string.IsNullOrEmpty(strForNumberAfterDecimal))
+                    return string.Empty;
+                if (string.IsNullOrEmpty(numberBeforeDecimal))
+                    return strForNumberAfterDecimal;
+                if (string.IsNullOrEmpty(strForNumberAfterDecimal))
+                    return numberBeforeDecimal.Trim() + " Only";
+
+                return string.Format("{0} And {1}", numberBeforeDecimal.Trim(), strForNumberAfterDecimal.Trim());
             }
             else
             {

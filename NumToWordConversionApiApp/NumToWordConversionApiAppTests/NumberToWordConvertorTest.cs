@@ -68,7 +68,7 @@ namespace NumToWordConversionApiAppTests
         {
             NumberToWordConvertor numConvertor = new NumberToWordConvertor();
             string result = numConvertor.ConvertNumberToWordFormat(120.9876);
-            Assert.AreEqual("One Hundred Twenty And Nine Thousand Eight Hundred Seventy Six Cents Only", result);
+            Assert.AreEqual("One Hundred Twenty And Ninety Eight Cents Only", result);
         }
 
         [TestMethod]
@@ -124,7 +124,7 @@ namespace NumToWordConversionApiAppTests
         {
             NumberToWordConvertor numConvertor = new NumberToWordConvertor();
             string result = numConvertor.ConvertNumberToWordFormat(381961209.008);
-            Assert.AreEqual("Three Hundred Eighty One Million Nine Hundred Sixty One Thousand Two Hundred Nine And Eight Cents Only", result);
+            Assert.AreEqual("Three Hundred Eighty One Million Nine Hundred Sixty One Thousand Two Hundred Nine Only", result);
         }
 
         [TestMethod]
